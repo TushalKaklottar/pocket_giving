@@ -1,17 +1,45 @@
 import 'package:get/get.dart';
 
+import '../model/charity_partner_model.dart';
 import '../model/daily_streak_model.dart';
 import '../model/pocket_fund_model.dart';
 
 class HomeController extends GetxController {
   var days = <DayModel>[].obs;
   var funds = <PocketGivingFundModel>[].obs;
+  var charityPartners = <CharityPartnerModel>[].obs;
 
   @override
   void onInit() {
     super.onInit();
     _initializeDays();
     _initializeFunds();
+    _initializeCharityPartners();
+  }
+
+  void _initializeCharityPartners() {
+    charityPartners.addAll([
+      CharityPartnerModel(
+        name: "Olive Academy",
+        iconPath: "assets/images/olive.png",
+      ),
+      CharityPartnerModel(
+        name: "Zubeda Welcome",
+        iconPath: "assets/images/zubeda.png",
+      ),
+      CharityPartnerModel(
+        name: "Seven Spikes Sadaqah",
+        iconPath: "assets/images/seven_spikes.png",
+      ),
+      CharityPartnerModel(
+        name: "Aid 4 Ummah",
+        iconPath: "assets/images/aid4ummah.png",
+      ),
+      CharityPartnerModel(
+        name: "Waterfall",
+        iconPath: "assets/images/waterfall.png",
+      ),
+    ]);
   }
 
   void _initializeDays() {
@@ -73,7 +101,7 @@ class HomeController extends GetxController {
         target: 50000,
       ),
       PocketGivingFundModel(
-        title: "Pocket Giving Education Fund",
+        title: "Pocket Giving Education Fund other",
         imagePath: "assets/images/giving_fund.png",
         stickerPath: "assets/images/sticker.png",
         countries: 10,
